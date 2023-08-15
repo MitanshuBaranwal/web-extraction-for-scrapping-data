@@ -17,7 +17,7 @@ This Django application extracts text content from a given URL, processes its te
 - Extracts text content from a provided URL.
 - Handles basic text formatting such as bold and italic.
 - Converts HTML content to Markdown format.
-- Removes URLs from the content.
+- Removes unnecessary URLs from the content.
 - Generates a Word document with the extracted and formatted text.
 
 ## Installation
