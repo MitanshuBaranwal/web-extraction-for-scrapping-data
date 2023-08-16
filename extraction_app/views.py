@@ -56,7 +56,8 @@ def extract_text(request):
             markdown_text = h.handle(str(soup))
 
             # Remove non-needed URLs from the content
-            markdown_text_no_urls = re.sub(r'\[.*?]\(.*?\)', ' ', markdown_text)
+            url_regex = r'\[.*?]\(.*?\)'
+            markdown_text_no_urls = re.sub(url_regex,' ', markdown_text)
 
             # Create a new Word document
             doc = Document()
@@ -74,7 +75,7 @@ def extract_text(request):
             doc.save(file_path)
 
             # Return a success message
-            return JsonResponse({'message': 'Text extracted and saved as Word document.'})
+            return JsonResponse({'message': 'Text extracted and saved as extracted_text.docx'})
         else:
             # Return an error message if fetching the URL failed
             return JsonResponse({'error': 'Failed to fetch URL.'}, status=400)
